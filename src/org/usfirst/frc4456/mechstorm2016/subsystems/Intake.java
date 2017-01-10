@@ -52,5 +52,8 @@ public class Intake extends Subsystem {
     public void stopIntake() {
     	intakeMotor.set(0);
     }
+    public void reverseIntake()	{
+    	intakeMotor.set(-1);
+    }
 }
 

@@ -11,6 +11,7 @@
 
 package org.usfirst.frc4456.mechstorm2016.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4456.mechstorm2016.Robot;
 
@@ -38,6 +39,8 @@ public class dropShooter extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.aim.shooterReverse();
+    	//if((Robot.aim.getlimitswitchBottom()))
+    	//	Robot.aim.shooterReverse();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,11 +49,22 @@ public class dropShooter extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+    	return (Robot.aim.getlimitswitchBottom());
     }
 
-    // Called once after isFinished returns true
+    // Called once after isFinished returns true\
     protected void end() {
+    	/*
+    	Timer timer = new Timer();
+    	timer.start();
+    	
+    	//get to low bar and lower arm
+    	while(!timer.hasPeriodPassed(2)){
+    		Robot.aim.stopaim();
+    	}
+    	timer.stop();
+		timer.reset();
+		*/
     	Robot.aim.stopaim();
     }
 

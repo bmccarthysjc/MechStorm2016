@@ -24,6 +24,18 @@ public class LowBarAuto extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Timer timer = new Timer();
+    	/*
+    	timer.start();
+    	
+    	//get to low bar and lower arm
+    	while(!timer.hasPeriodPassed(5)){
+    		Robot.aim.shooterForward();
+    	}
+    	Robot.aim.stopaim();
+    	timer.stop();
+		timer.reset();
+		*/
+    	////////////////////////////
     	timer.start();
     	
     	//get to low bar and lower arm
@@ -37,41 +49,69 @@ public class LowBarAuto extends Command {
 		//////////////////////////////////////
 		timer.start();
 		//move under bar
-		while(!timer.hasPeriodPassed(1.7)){
+		while(!timer.hasPeriodPassed(2.2)){
     		Robot.drive.setspeed(-.7);
     	}
 		timer.stop();
 		timer.reset();
 		Robot.drive.setspeed(0);
+		
+		///////////////////////////////////////
+		
+		timer.start();
+    	
+    	//get to low bar and lower arm
+    	while(!timer.hasPeriodPassed(2.2)){
+    		Robot.arm.setarm(-0.18);
+    	}
+    	Robot.arm.setarm(0);
+    	timer.stop();
+		timer.reset();
+		
+		//////////////////////////////
+		/*
+		timer.start();
+    	
+    	//get to low bar and lower arm
+    	while(!timer.hasPeriodPassed(6)){
+    		Robot.aim.shooterReverse();
+    	}
+    	Robot.aim.stopaim();
+    	timer.stop();
+		timer.reset();
+		*/
 		////////////////////////////////////////
+		
+		/*
+		 
 		timer.start();
 		//spin to shoot
-		while(!timer.hasPeriodPassed(0.6)){
-    		Robot.drive.spinright(1);
+		while(!timer.hasPeriodPassed(1)){
+    		Robot.drive.spinright(0.86);
     	}
 		timer.stop();
 		timer.reset();
 		Robot.drive.setspeed(0);
 		////////////////////////////////////////
-		/*
 		timer.start();
-		//raise shooter
-		while(!timer.hasPeriodPassed(6)){
-    		Robot.aim.shooterForward();
+		//move under bar
+		while(!timer.hasPeriodPassed(1.1)){
+    		Robot.drive.setspeed(.7);
     	}
 		timer.stop();
 		timer.reset();
-		Robot.aim.stopaim();
-		*/
-		
+		Robot.drive.setspeed(0);
+				
 		//////////////////////////////////////////
 		//spin up motors and fire
 		Robot.shooter.speedmotors();
-		Timer.delay(2.5);
+		Timer.delay(2);
 		Robot.shooter.plunger();
-		Timer.delay(1);
+		Timer.delay(1.5);
 		Robot.shooter.stopplunger();
 		Robot.shooter.stopshooter();
+		
+		*/
 		endCommand = true;
     	
     }

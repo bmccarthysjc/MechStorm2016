@@ -47,14 +47,30 @@ public class Aim extends Subsystem {
     }
     public void shooterForward() {
     	//double axis5 = joy1.getRawAxis(5);
-    	scissorLift.set(1.0);
+    	//scissorLift.setVoltageRampRate(8);
+    	scissorLift.set(-1.0);
     }
     public void shooterReverse() {
     	//double axis5 = joy1.getRawAxis(5);
-    	scissorLift.set(-1.0);
+    	//scissorLift.setVoltageRampRate(8);
+    	scissorLift.set(1.0);
     }
     public void stopaim() {
     	scissorLift.set(0);
     }
+
+	public double getbucketposition() {
+		// TODO Auto-generated method stub
+		return RobotMap.aimscissorLift.get();
+	}
+	public boolean getlimitswitchBottom()	{
+		return RobotMap.limitswitch1.get();
+	}
+	public boolean getlimitswitchTop()	{
+		return RobotMap.limitswitch2.get();
+	}
 }
+
+
+
 
